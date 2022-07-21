@@ -1,9 +1,9 @@
-from ast import main
-from cgitb import text
-from lib2to3.pgen2 import driver
-from os import link
-import requests
-from bs4 import BeautifulSoup
+# from ast import main
+# from cgitb import text
+# from lib2to3.pgen2 import driver
+# from os import link
+# import requests
+# from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -12,7 +12,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
-from urllib.request import BaseHandler
+# from urllib.request import BaseHandler
 
 class Scraper():
 
@@ -72,7 +72,7 @@ class Scraper():
         
         except TimeoutException:
             
-            print("Loading took too much time! Maybe there is no cookies to accept!")
+            print("Loading took too much time! Maybe there are no cookies to accept!")
         
     
 
@@ -85,7 +85,7 @@ class Scraper():
             next[0].click()
         
         except TimeoutException:
-            print("Loading took too much time! Seems there is no more page!")
+            print("Loading took too much time! Seems this is the last page!")
             self.if_next_page=False
         
     
@@ -113,7 +113,7 @@ class Scraper():
             links = WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="main-content"]//div[@data-test="product-image-container"]//a[@href]')))
     
             for link in links:
-                print (link)
+                print (link.get_attribute('href'))
                 link_list.append(link.get_attribute('href'))
             
             # go to next page if there is any 
@@ -121,6 +121,7 @@ class Scraper():
             time.sleep(0.5)
         
         print (len(link_list)) 
+        
 
         return link_list
     
@@ -129,8 +130,7 @@ class Scraper():
     #     src=self.driver.find_element(by=By.XPATH, value='//img[@class="logo-logo--5b465"]')
     #     print(src.get_attribute('src'))
     
-           
-
+        
 if __name__ =='__main__':
     url = 'https://www.johnlewis.com'
     item_to_search = 'dune shoes'
