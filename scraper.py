@@ -16,8 +16,9 @@ from urllib.request import BaseHandler
 
 class Scraper():
 
-    def __init__(self,URL) -> None:
+    def __init__(self,URL,items_to_seach) -> None:
         self.URL = URL
+        self.items_to_search = items_to_seach
         
         # not to close window once the method is running
         chr_options = Options()
@@ -26,8 +27,9 @@ class Scraper():
 
         self.path = self.driver.get(self.URL)
         self.delay = 5
+        self.if_next_page=True
         
-        time.sleep(1)
+        time.sleep(0.5)
 
      
     def accept_cookies(self):
@@ -42,12 +44,12 @@ class Scraper():
         # return self.driver 
 
     def scroll(self):
-        self.search()
+        # self.search()
         # Get scroll height
         last_height = self.driver.execute_script("return document.body.scrollHeight")
 
         while True:
-            # Scroll down to the midle of the page 
+            # Scroll down to the middle of the page 
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight-2000);")
             
             # Wait to load page
@@ -61,44 +63,65 @@ class Scraper():
     
     def search(self):
         
-        self.accept_cookies()
-        
         try: 
             search_bar= WebDriverWait(self.driver, self.delay).until(EC.presence_of_element_located((By.XPATH, '//*[@name="search-term"]')))
-            search_bar.send_keys("ladies shoes")
-            time.sleep(1)
+            search_bar.send_keys(self.items_to_search)
+            time.sleep(0.8)
             search_bar.send_keys(Keys.ENTER)
-            time.sleep(1)
-        except TimeoutException:
-            print("Loading took too much time! Maybe there is no cookies to accept!")
-
+            time.sleep(0.8)
         
+        except TimeoutException:
+            
+            print("Loading took too much time! Maybe there is no cookies to accept!")
+        
+    
 
     def go_to_next_page(self):
-        
-        self.scroll()
-        
+
         try: 
-            next= WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="js-plp-body"]/div[2]/nav/ul/li[2]/a/img')))
+            # next= WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="js-plp-body"]/div[2]/nav/ul/li[2]/a/img')))
+            # next[0].click()
+            next= WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, '//a[@aria-label="Next"]')))
             next[0].click()
         
         except TimeoutException:
-            print("Loading took too much time! Check if there is any next page!")
-        
+            print("Loading took too much time! Seems there is no more page!")
+            self.if_next_page=False
         
     
     def find_all_links(self):
-
-        self.scroll()
-        time.sleep(1)    
-            
-        links = self.driver.find_elements(by=By.XPATH, value='//*[@id="main-content"]//div[@data-test="product-image-container"]//a[@href]')
-        link_list=[]
-        for link in links:
-            link_list.append(link.get_attribute('href'))
-        print (link_list) 
-        print (len(link_list)) 
         
+        self.accept_cookies()
+        time.sleep(0.8)
+        
+        self.search()
+        time.sleep(0.8)
+
+        link_list=[]
+        page=0
+
+        while self.if_next_page==True: 
+            # page number
+            page +=1
+            print(f'page {page}')
+            
+            # scroll down to the bottom for items to load
+            self.scroll()
+            time.sleep(0.5)
+            
+            # extract item link from the current page
+            links = WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="main-content"]//div[@data-test="product-image-container"]//a[@href]')))
+    
+            for link in links:
+                print (link)
+                link_list.append(link.get_attribute('href'))
+            
+            # go to next page if there is any 
+            self.go_to_next_page()
+            time.sleep(0.5)
+        
+        print (len(link_list)) 
+
         return link_list
     
     # def extract_src(self):
@@ -110,7 +133,8 @@ class Scraper():
 
 if __name__ =='__main__':
     url = 'https://www.johnlewis.com'
-    Scraper(url).find_all_links()
+    item_to_search = 'dune shoes'
+    Scraper(url,item_to_search).find_all_links()
    
     
 
