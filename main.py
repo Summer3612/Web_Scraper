@@ -1,10 +1,21 @@
-from scraper.Scraper import JlScraper
+from scraper.JlScraper import JlScraper
+from pandas import json_normalize
+import pandas as pd
 
 if __name__ =='__main__':
     
     john_lewis=JlScraper()
-    # john_lewis.accept_cookies()
-    # john_lewis.search('dune shoes')
-    # products=john_lewis.find_all_search_result_links()
-    product_dic=john_lewis.create_prodcut_dic('https://www.johnlewis.com/john-lewis-anyday-baby-flower-heart-sleepsuit-pack-of-3-pink-multi/p6202474')
-    john_lewis.save_product_info(product_dic)
+    john_lewis.search('dune slipper')
+    product_list=john_lewis.find_all_search_result_links()
+    
+    # df_new=pd.DataFrame()
+    for product in product_list:
+        product_dic=john_lewis.create_prodcut_dic(product)
+        john_lewis.save_product_info(product_dic)
+
+    #     normalize_dic=json_normalize(product_dic)
+    #     df=pd.DataFrame.from_dict(normalize_dic)
+    #     df_new=pd.concat([df_new,df],axis=0)
+
+        
+    # print(df_new)

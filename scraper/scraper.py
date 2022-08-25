@@ -9,8 +9,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
 import json
-from pandas import json_normalize
-import uuid 
 import os
 
 
@@ -25,15 +23,17 @@ class Scraper:
         chr_options = Options()
         chr_options.add_experimental_option("detach", True)
         chr_options.add_argument("--disable-notifications")
-
+        
         self.driver = webdriver.Chrome(options=chr_options)
-        self.driver.get(self.URL)
-        self.delay = 1
-        self.if_next_page=True
+        self.delay = 2
+        self._get_driver(self.URL)
     
     
-    @staticmethod
-    def create_folder(folder_name,folder_path:str='/Users/shubosun/Desktop/'):
+    def _find_element(self, xpath:str): 
+        element = WebDriverWait(self.driver, self.delay).until(EC.presence_of_element_located((By.XPATH, xpath)))
+        return element 
+    
+    def _create_folder(self,folder_name:str, folder_path:str='/Users/shubosun/Desktop/'):
 
         try:
             path = os.path.join(folder_path,folder_name)
@@ -46,49 +46,60 @@ class Scraper:
         
         return path
     
-    @staticmethod
-    def save_dic_in_json(dic_to_save:dict, file_name:str,folder_path:str='/Users/shubosun/Desktop/'): 
+    
+    def _save_dic_in_json(self, dic_to_save:dict, file_name:str,folder_path:str='/Users/shubosun/Desktop/'): 
 
         file=f"{folder_path}/{file_name}.json"
         with open(file,"w") as f:
             json.dump (dic_to_save,f, indent=2)
 
 
-    @staticmethod
-    def download_image_locally(image_url:str, image_name:str, folder_path:str='/Users/shubosun/Desktop/'):
+    
+    def _download_image_locally(self, image_url:str, image_name:str, folder_path:str='/Users/shubosun/Desktop/'):
             # need to find the local path to save image but currently downloading is fine
         name=f"{folder_path}/{image_name}.jpg"
         urllib.request.urlretrieve(image_url,name)
 
     
-    def accept_cookies(self,path:str='//*[@data-test="allow-all"]'):
+    def _accept_cookies(self,xpath:str='//*[@data-test="allow-all"]'):
     
         try:
-            accept_cookies_button = WebDriverWait(self.driver, self.delay).until(EC.presence_of_element_located((By.XPATH, path)))
+            accept_cookies_button = self._find_element(xpath)
             accept_cookies_button.click()
         except TimeoutException:
             print("Loading took too much time! Cookies are already accepted")
 
-    
-    # FIXME:it is not working. 
-    def close_live_chat_box(self):
+    def _close_pop_up_windor(self, xpath:str='//*[@id="closeModal"]'):
+        try:
+            close_button = self._find_element(xpath)
+            close_button.click()
+        except TimeoutException:
+            print("Loading took too much time! ")
+
+    def _close_live_chat_box(self, xpath: str ='//span[@id="closeButtonId"]' ):
         
         # self.accept_cookies()
         try:
-            chat_box= WebDriverWait(self.driver,self.delay).until(EC.presence_of_element_located((By.XPATH, '//span[@id="closeButtonId"]')))
+            chat_box= self._find_element(xpath)
             chat_box.click()
         
         except TimeoutException:
             print("Loading took too much time! Maybe there is no live chat box!")
 
+    def _get_driver(self,url:str):
+        self.driver.get(url)
+        self._close_pop_up_windor()
+        self._accept_cookies()
+        self._close_live_chat_box()
+        
 
-    def scroll_down(self):
+
+    def _scroll_down(self):
 
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight-2000);")
 
 
-    
-    def scroll_down_till_bottom(self):
+    def _scroll_down_till_bottom(self):
 
         """
         This method is for website to keep scrolling down until the page is no longer loading. 
@@ -99,7 +110,7 @@ class Scraper:
 
         while True:
             # Scroll down to the middle of the page 
-            self.scroll_down()
+            self._scroll_down()
             # Wait to load page
             time.sleep(0.3)
             
@@ -109,19 +120,19 @@ class Scraper:
                 break
             last_height = new_height
     
+    def _go_to_next_page(self, xpath:str='//a[@aria-label="Next"]'):
+
+        next= self._find_element(xpath)
+        next.click()
+    
+    
     def search(self, item_to_search:str, xpath:str = '//input[@name="search-term"]'):
         
-        search_bar= WebDriverWait(self.driver, self.delay).until(EC.presence_of_element_located((By.XPATH, xpath)))
+        search_bar= self._find_element(xpath)
         search_bar.send_keys(item_to_search)
-        time.sleep(0.5)
+        time.sleep(self.delay)
         search_bar.send_keys(Keys.ENTER)
-        time.sleep(0.5)
-
-
-    def go_to_next_page(self, xpath:str='//a[@aria-label="Next"]'):
-
-        next= WebDriverWait(self.driver,self.delay).until(EC.presence_of_element_located((By.XPATH, xpath)))
-        next.click()
+        time.sleep(self.delay)
     
     def find_all_search_result_links(self)->list:
 
@@ -137,7 +148,7 @@ class Scraper:
             print(f'page {page}')
             
             # scroll down to the bottom for items to load
-            self.scroll_down_till_bottom()
+            self._scroll_down_till_bottom()
             time.sleep(0.5)
             
             # extract item link from the current page
@@ -149,7 +160,7 @@ class Scraper:
             
             # go to next page if there is any 
             try: 
-                self.go_to_next_page()
+                self._go_to_next_page()
                 time.sleep(0.5)
          
             except TimeoutException:
@@ -160,126 +171,8 @@ class Scraper:
 
         return link_list
 
-class JlScraper(Scraper):
-
-    def get_product_id(self, xpath:str = '//jl-store-stock')->str:
-        name = WebDriverWait(self.driver,self.delay).until(EC.presence_of_element_located((By.XPATH, xpath)))
-        product_id = name.get_attribute('skuid')
-        return product_id
-    
-    # FIXME: only certain categories of products are fine
-    def get_product_name(self,xpath:str = '//div[@class="xs-up"]//*[@class="ProductTitle_title__JiefQ"]')->str:
-        productName=WebDriverWait(self.driver,self.delay).until(EC.presence_of_element_located((By.XPATH, xpath)))
-        return productName.text
 
 
-    def get_product_rating(self, xpath:str ='//span[@data-test="rating"]')->str:    
-        # get rating - some products' rating is not availabe so try is used.
-        
-        rating = ''
-        try:
-            productRating=WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, xpath)))
-            rating=productRating[1].text
-        
-        except TimeoutException: 
-            rating='no rating available'
-        
-        return rating
-
-    # FIXME: only certain categories of products are fine
-    # different size has different availability and price so the below is created in one method
-    def get_product_size_availability_price_list(self,xpath:str ='//button[@data-cy="size-selector-item"]')->list: 
-        self.accept_cookies()
-        
-        size_list = WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, xpath)))
-
-        size_availability_price=[]
-
-        for size in size_list:
-            temp_list=[]
-            
-            try:
-                size.click()
-                time.sleep(0.5)
-                
-            except Exception as e: 
-                print(f'cannot click {size_list.index(size)}')
-                print(e.args)
-            
-            # the attribute 'aria-label' of size is in the format like '4. This size is selected' if available or ' 8. This size is selected but unavailable'
-            # split is used to get separated information of size and whether it is available
-            size.get_attribute('aria-label').split('.')[0]
-            temp_list.append(size.get_attribute('aria-label').split('.')[0])
-
-            if 'unavailable' in size.get_attribute('aria-label').split('.')[1]:
-                temp_list.append('unavailable')
-            else: 
-                temp_list.append('available')
-            
-            temp_list.append(self.get_product_price_history())
-
-
-            size_availability_price.append(temp_list)
-
-        return size_availability_price
-   
-    def get_product_src(self,xpath:str='//*[@class="ImageMagnifier_image-wrapper__GhoSr"]')->list: 
-        # get src of the images of the product 
-        src_elements = WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, xpath)))
-
-        product_src_list=[]
-        for i in src_elements:
-            src = i.find_element(By.CSS_SELECTOR,'img')
-            product_src_list.append(src.get_attribute('src'))
-        
-        return product_src_list
-    
-    # # FIXME: only certain categories of products are fine
-    
-
-    def get_product_price_history(self,xpath:str='//span[@class="ProductPrice_prices-list__jbkRS"]')->str:
-        # price_element = WebDriverWait(self.driver,self.delay).until(EC.presence_of_element_located((By.XPATH,class_name)))
-        price_elements =self.driver.find_elements(By.XPATH,xpath)
-        # price=""
-        # for element in price_elements:
-        #     print (element.text)
-        return price_elements[1].text
-
-    def create_prodcut_dic(self,url:str)->dict:
-        self.driver.get(url)
-        time.sleep(1)
-        self.close_live_chat_box()
-    
-        product_info_dic = {'uuid':str(uuid.uuid4()), 'product id': '', 'product name': '', 'product rating': '', 'available size and price':[], 'src links':[]}
-        
-        product_info_dic['product id']=self.get_product_id()
-        product_info_dic['product name']=self.get_product_name()
-        product_info_dic['product rating'] = self.get_product_rating()
-        product_info_dic['available size and price']=self.get_product_size_availability_price_list()
-        product_info_dic['src links'] = self.get_product_src()
-
-
-        return product_info_dic
-
-    def save_product_info(self,product_info_dic:dict):
-
-        raw_data_folder_path= self.create_folder('raw data', '/Users/shubosun/Desktop/')
-        product_folder_path = self.create_folder(product_info_dic['product id'],raw_data_folder_path)
-        
-        
-        for src_link in product_info_dic['src links']:
-            # need to find the local path to save image but currently downloading is fine
-            name=product_info_dic['product id']+'_'+str(product_info_dic['src links'].index(src_link))
-            self.download_image_locally(src_link,name ,product_folder_path)
-
-        
-        # df=pd.DataFrame.from_dict(product_info_dic, orient='index')
-        self.save_dic_in_json(product_info_dic, product_info_dic['product id'],product_folder_path)
-        df=json_normalize(product_info_dic)
-        print(df)
-
-
-        
 
 
   
