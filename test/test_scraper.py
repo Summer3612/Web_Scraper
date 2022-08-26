@@ -3,8 +3,9 @@ from scraper.Scraper import Scraper
 import unittest
 from unittest import mock
 from unittest.mock import patch, Mock, call
-from selenium.webdriver.common.keys import Keys
-
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import selenium
 
 
 class TestScraper:
@@ -14,20 +15,25 @@ class TestScraper:
         self.test_Scraper = Scraper() 
 
 
-    @patch('scraper.Scraper.time.sleep')
-    @patch('scraper.Scraper.Scraper._find_element')
-    def test_search(
-        self,
-        mock_find_element:Mock,
-        mock_sleep:Mock
-        ):
-        self.test_Scraper.search('shoes')
-        mock_find_element.assert_called_with('//input[@name="search-term"]')
-        assert mock_sleep.call_count == 2
-        assert mock_find_element.call_count==1
-        mock_find_element.send_keys = 
+    # @patch('scraper.Scraper.time.sleep')
+    # @patch('scraper.Scraper.Scraper._find_element')
+    # def test_search(
+    #     self,
+    #     mock_find_element:Mock,
+    #     mock_sleep:Mock
+    #     ):
+    #     self.test_Scraper.search('shoes')
+    #     mock_find_element.assert_called_with('//input[@name="search-term"]')
+    #     assert mock_sleep.call_count == 2
+        # FIXME: how to test send_keys in search()
+        # mock_find_element.send_keys = ???
 
-    
+    def test_find_all_search_result_links(self):
+        
+        self.test_Scraper.search('bedding sets')
+        list = self.test_Scraper.find_all_search_result_links()
+        element = self.test_Scraper.driver.find_element(by = By.XPATH, value='//span[@id="screen-reader-updates"]')
+        assert element.text.split(' ')[2] == str(len(list))
     
     def tearDown(self) -> None:
         
