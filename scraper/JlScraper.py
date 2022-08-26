@@ -118,7 +118,7 @@ class JlScraper(Scraper):
         for src_link in product_info_dic['src links']:
             # need to find the local path to save image but currently downloading is fine
             name=product_info_dic['product id']+'_'+str(product_info_dic['src links'].index(src_link))
-            self._download_image_locally(src_link,name ,product_folder_path)
+            self._download_image_locally(src_link, name ,product_folder_path)
         
         self._save_dic_in_json(product_info_dic, product_info_dic['product id'],product_folder_path)
         # df=pd.DataFrame.from_dict(product_info_dic, orient='index')
