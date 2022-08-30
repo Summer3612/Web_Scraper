@@ -9,6 +9,8 @@ from selenium.common.exceptions import TimeoutException
 import uuid 
 import pandas as pd
 from pandas import json_normalize
+import boto3
+import os
 
 class JlScraper(Scraper):
         
@@ -85,7 +87,7 @@ class JlScraper(Scraper):
         
         return product_src_list
     
-    # # FIXME: only certain categories of products are fine
+    # FIXME: only certain categories of products are fine
 
     def _get_product_price_history(self,xpath:str='//span[@class="ProductPrice_prices-list__jbkRS"]')->str:
         
@@ -97,6 +99,7 @@ class JlScraper(Scraper):
         """this method is to create a python dictionary to save the id, name, rating, size and price, src links of a product"""
 
         self._get_driver(url)
+        self._scroll_down()
 
         product_info_dic = {'uuid':str(uuid.uuid4()), 'product id': '', 'product name': '', 'product rating': '', 'available size and price':[], 'src links':[]}
         
@@ -116,11 +119,16 @@ class JlScraper(Scraper):
         product_folder_path = self._create_folder(product_info_dic['product id'],raw_data_folder_path)
         
         for src_link in product_info_dic['src links']:
-            # need to find the local path to save image but currently downloading is fine
+        
             name=product_info_dic['product id']+'_'+str(product_info_dic['src links'].index(src_link))
             self._download_image_locally(src_link, name ,product_folder_path)
-        
+                    
         self._save_dic_in_json(product_info_dic, product_info_dic['product id'],product_folder_path)
-        # df=pd.DataFrame.from_dict(product_info_dic, orient='index')
-        # df=json_normalize(product_info_dic)
         
+    
+    @staticmethod
+    def upload_directory_to_s3(path,bucketname):
+        s3=boto3.client('s3')
+        for root,dirs,files in os.walk(path):
+            for file in files:
+                s3.upload_file(os.path.join(root,file),bucketname,file)
