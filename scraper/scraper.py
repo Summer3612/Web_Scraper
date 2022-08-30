@@ -12,9 +12,12 @@ import json
 import os
 
 
-# from urllib.request import BaseHandler
+
 
 class Scraper:
+
+
+  
 
     def __init__(self, URL: str='https://www.johnlewis.com'):
         self.URL = URL
@@ -27,11 +30,9 @@ class Scraper:
         self.driver = webdriver.Chrome(options=chr_options)
         self.delay = 2
         self._get_driver(self.URL)
+
     
-    
-    def _find_element(self, xpath:str): 
-        element = WebDriverWait(self.driver, self.delay).until(EC.presence_of_element_located((By.XPATH, xpath)))
-        return element 
+
     
     def _create_folder(self,folder_name:str, folder_path:str='/Users/shubosun/Desktop/'):
 
@@ -60,6 +61,11 @@ class Scraper:
         name=f"{folder_path}/{image_name}.jpg"
         urllib.request.urlretrieve(image_url,name)
 
+
+    def _find_element(self, xpath:str): 
+        element = WebDriverWait(self.driver, self.delay).until(EC.presence_of_element_located((By.XPATH, xpath)))
+        return element 
+
     
     def _accept_cookies(self,xpath:str='//*[@data-test="allow-all"]'):
     
@@ -69,6 +75,7 @@ class Scraper:
         except TimeoutException:
             print("Loading took too much time! Cookies are already accepted")
 
+
     def _close_pop_up_windor(self, xpath:str='//*[@id="closeModal"]'):
         try:
             close_button = self._find_element(xpath)
@@ -76,15 +83,16 @@ class Scraper:
         except TimeoutException:
             print("Loading took too much time! ")
 
+
     def _close_live_chat_box(self, xpath: str ='//span[@id="closeButtonId"]' ):
         
-        # self.accept_cookies()
         try:
             chat_box= self._find_element(xpath)
             chat_box.click()
         
         except TimeoutException:
             print("Loading took too much time! Maybe there is no live chat box!")
+
 
     def _get_driver(self,url:str):
         self.driver.get(url)
@@ -96,7 +104,7 @@ class Scraper:
 
     def _scroll_down(self):
 
-        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight-2000);")
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight-1500);")
 
 
     def _scroll_down_till_bottom(self):

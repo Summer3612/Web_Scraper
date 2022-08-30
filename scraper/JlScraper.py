@@ -1,5 +1,4 @@
 from scraper.Scraper import Scraper
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.wait import WebDriverWait
@@ -7,13 +6,16 @@ import time
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import uuid 
-import pandas as pd
-from pandas import json_normalize
 import boto3
 import os
+import boto3
+import requests
+import mimetypes
+from sqlalchemy import create_engine
+import pandas as pd
+
 
 class JlScraper(Scraper):
-        
 
     def _get_product_id(self, xpath:str = '//jl-store-stock')->str:
         name = self._find_element(xpath)
@@ -94,6 +96,7 @@ class JlScraper(Scraper):
         price_elements =self.driver.find_elements(By.XPATH,xpath)
         return price_elements[1].text
 
+    
     def create_prodcut_dic(self,url:str)->dict:
 
         """this method is to create a python dictionary to save the id, name, rating, size and price, src links of a product"""
@@ -111,7 +114,7 @@ class JlScraper(Scraper):
 
         return product_info_dic
 
-    def save_product_info(self,product_info_dic:dict):
+    def save_product_info_local(self,product_info_dic:dict):
 
         """this method is to save the production information and pictures in a local folder"""
 
@@ -126,9 +129,32 @@ class JlScraper(Scraper):
         self._save_dic_in_json(product_info_dic, product_info_dic['product id'],product_folder_path)
         
     
+
     @staticmethod
-    def upload_directory_to_s3(path,bucketname):
-        s3=boto3.client('s3')
-        for root,dirs,files in os.walk(path):
-            for file in files:
-                s3.upload_file(os.path.join(root,file),bucketname,file)
+    def upload_file(remote_url, bucket, file_name):
+        s3 = boto3.client('s3')
+        
+        imageResponse = requests.get(remote_url, stream=True).raw
+        content_type = imageResponse.headers['content-type']
+        extension = mimetypes.guess_extension(content_type)
+
+        s3.upload_fileobj(imageResponse, bucket, file_name+extension)
+        print("Upload Successful")
+
+    @staticmethod
+    def upload_data_to_RDS(product_dict:dict):
+        DATABASE_TYPE = 'postgresql'
+        DBAPI = 'psycopg2'
+        ENDPOINT = 'database-1.cizl8lhq8hlk.eu-west-2.rds.amazonaws.com' 
+        USER = 'postgres'
+        PASSWORD = 'Password'
+        PORT = 5432
+        DATABASE = 'postgres'
+        
+        engine = create_engine(f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}")
+        engine.connect()
+        
+        df=pd.DataFrame.from_dict(product_dict, orient='index')
+        df.to_sql('dataset',engine, if_exists='replace')
+
+
