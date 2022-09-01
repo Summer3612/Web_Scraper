@@ -13,6 +13,7 @@ import mimetypes
 import pandas as pd
 import psycopg2
 from boto3 import exceptions
+import botocore
 
 
 class JlScraper(Scraper):
@@ -127,32 +128,28 @@ class JlScraper(Scraper):
     
 
     @staticmethod
-    def save_image_remotely(url:str, bucket:str, file_name:str):
-        s3=boto3.resource('s3')
+    def save_image_remotely(url:str, bucket_name:str, file_name:str):
+        s3=boto3.client('s3')
         
         imageResponse = requests.get(url, stream=True).raw
         content_type = imageResponse.headers['content-type']
         extension = mimetypes.guess_extension(content_type)
         object_name=file_name+extension
+    
+        result = s3.list_objects_v2(Bucket=bucket_name, Prefix=object_name)
+        if 'Contents' in result:
+            print("Image already exists in the bucket.")
+        else:
+            try:
+                s3.upload_fileobj(imageResponse,bucket_name,object_name)
+
+            except Exception as e:
+                print (e)
+
 
         
+        
 
-        try:
-            s3.Object(bucket, object_name).load()
-
-        except exceptions.ClientError as e:
-
-            if e.response['Error']['Code'] == "404":
-
-                print("Object Doesn't exists")
-
-            else:
-
-                print("Error occurred while fetching a file from S3. Try Again.")
-
-
-        else:
-            print("Object Exists")
 
       
     @staticmethod

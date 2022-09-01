@@ -103,7 +103,7 @@ class Scraper:
 
     def _scroll_down(self):
 
-        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight-1000);")
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight-1800);")
 
 
     def _scroll_down_till_bottom(self):
@@ -122,7 +122,7 @@ class Scraper:
             time.sleep(0.3)
             
             # Calculate new scroll height and compare with last scroll height
-            new_height = self.driver.execute_script("return document.body.scrollHeight")
+            new_height = self.driver.execute_script("return document.body.scrollHeight-10")
             if new_height == last_height:
                 break
             last_height = new_height
