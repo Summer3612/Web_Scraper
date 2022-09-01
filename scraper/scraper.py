@@ -103,7 +103,7 @@ class Scraper:
 
     def _scroll_down(self):
 
-        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight-1500);")
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight-1000);")
 
 
     def _scroll_down_till_bottom(self):

@@ -1,4 +1,3 @@
-from curses import echo
 from scraper.Scraper import Scraper
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -8,13 +7,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import uuid 
 import boto3
-import os
 import boto3
 import requests
 import mimetypes
-from sqlalchemy import create_engine
 import pandas as pd
 import psycopg2
+from boto3 import exceptions
 
 
 class JlScraper(Scraper):
@@ -104,7 +102,7 @@ class JlScraper(Scraper):
         """this method is to create a python dictionary to save the id, name, rating, size and price, src links of a product"""
 
         self._get_driver(url)
-        self._scroll_down()
+    
 
         product_info_dic = {'uuid':str(uuid.uuid4()), 'product id': '', 'product name': '', 'product rating': '', 'available size and price':[], 'src links':[]}
         
@@ -130,15 +128,33 @@ class JlScraper(Scraper):
 
     @staticmethod
     def save_image_remotely(url:str, bucket:str, file_name:str):
-        s3 = boto3.client('s3')
+        s3=boto3.resource('s3')
         
         imageResponse = requests.get(url, stream=True).raw
         content_type = imageResponse.headers['content-type']
         extension = mimetypes.guess_extension(content_type)
+        object_name=file_name+extension
 
-        s3.upload_fileobj(imageResponse, bucket, file_name+extension)
-        print("Upload Successful")
+        
 
+        try:
+            s3.Object(bucket, object_name).load()
+
+        except exceptions.ClientError as e:
+
+            if e.response['Error']['Code'] == "404":
+
+                print("Object Doesn't exists")
+
+            else:
+
+                print("Error occurred while fetching a file from S3. Try Again.")
+
+
+        else:
+            print("Object Exists")
+
+      
     @staticmethod
     def upload_data_to_RDS(product_dic:dict):
        
@@ -169,11 +185,13 @@ class JlScraper(Scraper):
                             ) as conn: 
                 with conn.cursor() as cur: 
 
+                    # check if a record already exists. If yes, simply update the record;if not, upload the new record. 
                     cur.execute("SELECT product_id FROM dataset_test1 WHERE product_id=%s",(product_id,))
 
                     if cur.fetchone() is not None: 
-                        stmt=f'UPDATE dataset_test1 SET uuid ={uuid}, product_name={product_name}, product_rating = {product_rating}, available_size_and_price={available_size_and_price}, src_links={src_links} WHERE dataset_test1.product_id={product_id}'
-                        cur.execute(stmt)
+                        update_script="UPDATE dataset_test1 SET uuid =%s, product_name=%s, product_rating = %s, available_size_and_price=%s, src_links=%s WHERE product_id=%s"
+                        update_values= (uuid,product_name,product_rating, available_size_and_price, src_links, product_id,)
+                        cur.execute(update_script,update_values)
                     else: 
                         insert_script = "INSERT INTO dataset_test1 (uuid, product_id, product_name, product_rating, available_size_and_price, src_links) VALUES(%s,%s,%s,%s,%s,%s)"
                         insert_values = (uuid,product_id, product_name, product_rating, available_size_and_price ,src_links,)
