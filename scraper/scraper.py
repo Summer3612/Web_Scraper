@@ -56,8 +56,7 @@ class Scraper:
 
 
     
-    def _download_image_locally(self, image_url:str, image_name:str, folder_path:str='/Users/shubosun/Desktop/'):
-            # need to find the local path to save image but currently downloading is fine
+    def _download_image(self, image_url:str, image_name:str, folder_path:str='/Users/shubosun/Desktop/'):
         name=f"{folder_path}/{image_name}.jpg"
         urllib.request.urlretrieve(image_url,name)
 

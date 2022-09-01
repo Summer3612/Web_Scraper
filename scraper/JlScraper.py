@@ -1,3 +1,4 @@
+from curses import echo
 from scraper.Scraper import Scraper
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -13,6 +14,7 @@ import requests
 import mimetypes
 from sqlalchemy import create_engine
 import pandas as pd
+import psycopg2
 
 
 class JlScraper(Scraper):
@@ -114,27 +116,23 @@ class JlScraper(Scraper):
 
         return product_info_dic
 
-    def save_product_info_local(self,product_info_dic:dict):
+    def save_image_locally(self,url:str, folder_name:str,file_name:str, folder_path:str='/Users/shubosun/Desktop/Data_Collection'):
 
         """this method is to save the production information and pictures in a local folder"""
 
-        raw_data_folder_path= self._create_folder('raw data', '/Users/shubosun/Desktop/Data_Collection')
-        product_folder_path = self._create_folder(product_info_dic['product id'],raw_data_folder_path)
+        raw_data_folder_path= self._create_folder('raw data', folder_path)
+        product_folder_path = self._create_folder(folder_name,raw_data_folder_path)
         
-        for src_link in product_info_dic['src links']:
-        
-            name=product_info_dic['product id']+'_'+str(product_info_dic['src links'].index(src_link))
-            self._download_image_locally(src_link, name ,product_folder_path)
-                    
-        self._save_dic_in_json(product_info_dic, product_info_dic['product id'],product_folder_path)
-        
+        self._download_image(url, file_name,product_folder_path)
+
+        return product_folder_path
     
 
     @staticmethod
-    def upload_file(remote_url, bucket, file_name):
+    def save_image_remotely(url:str, bucket:str, file_name:str):
         s3 = boto3.client('s3')
         
-        imageResponse = requests.get(remote_url, stream=True).raw
+        imageResponse = requests.get(url, stream=True).raw
         content_type = imageResponse.headers['content-type']
         extension = mimetypes.guess_extension(content_type)
 
@@ -142,7 +140,8 @@ class JlScraper(Scraper):
         print("Upload Successful")
 
     @staticmethod
-    def upload_data_to_RDS(product_dict:dict):
+    def upload_data_to_RDS(product_dic:dict):
+       
         DATABASE_TYPE = 'postgresql'
         DBAPI = 'psycopg2'
         ENDPOINT = 'database-1.cizl8lhq8hlk.eu-west-2.rds.amazonaws.com' 
@@ -151,10 +150,42 @@ class JlScraper(Scraper):
         PORT = 5432
         DATABASE = 'postgres'
         
-        engine = create_engine(f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}")
-        engine.connect()
+        df=pd.DataFrame.from_dict(product_dic, orient='index')
+        uuid= df[0]['uuid']
+        product_id = df[0]['product id']
+        product_name = df[0]['product name']
+        product_rating = df[0]['product rating']
+        available_size_and_price = df[0]['available size and price']
+        src_links = df[0]['src links']
         
-        df=pd.DataFrame.from_dict(product_dict, orient='index')
-        df.to_sql('dataset',engine, if_exists='replace')
+        conn=None
+        try:
+
+            with  psycopg2.connect(host=ENDPOINT, 
+                            port= PORT,
+                            user=USER,
+                            password=PASSWORD,
+                            database=DATABASE
+                            ) as conn: 
+                with conn.cursor() as cur: 
+
+                    cur.execute("SELECT product_id FROM dataset_test1 WHERE product_id=%s",(product_id,))
+
+                    if cur.fetchone() is not None: 
+                        stmt=f'UPDATE dataset_test1 SET uuid ={uuid}, product_name={product_name}, product_rating = {product_rating}, available_size_and_price={available_size_and_price}, src_links={src_links} WHERE dataset_test1.product_id={product_id}'
+                        cur.execute(stmt)
+                    else: 
+                        insert_script = "INSERT INTO dataset_test1 (uuid, product_id, product_name, product_rating, available_size_and_price, src_links) VALUES(%s,%s,%s,%s,%s,%s)"
+                        insert_values = (uuid,product_id, product_name, product_rating, available_size_and_price ,src_links,)
+                        cur.execute(insert_script,insert_values) 
+
+       
+        except Exception as error:
+            print (error)
+        
+        finally:
+            if conn is not None: 
+                conn.close()
+
 
 
