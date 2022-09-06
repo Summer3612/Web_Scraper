@@ -1,6 +1,9 @@
 from scraper.JlScraper import JlScraper
 import boto3
 from boto3 import exceptions
+import sqlalchemy
+from sqlalchemy import String, create_engine,Column,MetaData,Table
+
 
 
 
@@ -31,7 +34,7 @@ if __name__ =='__main__':
     
     
     john_lewis=JlScraper()
-    john_lewis.search('ladies slippers')
+    john_lewis.search('dune slippers')
     product_list=john_lewis.find_all_search_result_links()
  
     i=0
@@ -46,9 +49,9 @@ if __name__ =='__main__':
                 folder_name=product_dic['product id']
                 file_name=product_dic['product id']+'_'+str(product_dic['src links'].index(src_link))
                 # save image remotely
-                john_lewis.save_image_remotely(src_link,'aicoredb',file_name)
+                # john_lewis.save_image_remotely(src_link,'aicoredb',file_name)
                 #  save image locallly 
-                # john_lewis.save_image_locally(src_link,folder_name, file_name)
+                john_lewis.save_image_locally(src_link,folder_name, file_name)
         i=i+1
 
 

@@ -1,7 +1,10 @@
-urllib
-selenium
-time
-json
-pandas 
-uuid 
-os
+boto3
+selenium ==4.3.0
+requests
+sqlalchemy
+pandas
+psycopg2-binary
+
+
+
+
