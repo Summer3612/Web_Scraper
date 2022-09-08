@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 import mimetypes
 import boto3
 import pandas as pd
@@ -22,7 +23,7 @@ class JlScraper(Scraper):
         return product_id
     
     # FIXME: only certain categories of products are fine
-    def _get_product_name(self,xpath:str = '//div[@class="xs-up"]//*[@class="ProductTitle_title__JiefQ"]')->str:
+    def _get_product_name(self,xpath:str = '//div[@class="xs-up"]//h1')->str:
         productName=self._find_element(xpath)
         return productName.text
 
@@ -88,7 +89,6 @@ class JlScraper(Scraper):
         
         return product_src_list
     
-    # FIXME: only certain categories of products are fine
 
     def _get_product_price_history(self,xpath:str='//span[@class="ProductPrice_prices-list__jbkRS"]')->str:
         
@@ -113,16 +113,16 @@ class JlScraper(Scraper):
 
         return product_info_dic
 
-    def save_image_locally(self,url:str, folder_name:str, file_name:str, folder_path:str='/Users/shubosun/Desktop/Data_Collection'):
+    # def save_image_locally(self,url:str, folder_name:str, file_name:str, folder_path:str='/Users/shubosun/Desktop/Data_Collection'):
 
-        """this method is to save the production information and pictures in a local folder"""
+    #     """this method is to save the production information and pictures in a local folder"""
 
-        raw_data_folder_path= self.create_folder('raw data', folder_path)
-        product_folder_path = self.create_folder(folder_name,raw_data_folder_path)
+    #     raw_data_folder_path= self.create_folder('raw data', folder_path)
+    #     product_folder_path = self.create_folder(folder_name,raw_data_folder_path)
         
-        self.download_image(url, file_name,product_folder_path)
+    #     self.download_image(url, file_name,product_folder_path)
 
-        return product_folder_path
+    #     return product_folder_path
     
 
     @staticmethod
@@ -134,22 +134,25 @@ class JlScraper(Scraper):
         extension = mimetypes.guess_extension(content_type)
         object_name=file_name+extension
     
-        result = s3.list_objects_v2(Bucket=bucket_name, Prefix=object_name)
-        if 'Contents' in result:
-            print("Image already exists in the bucket.")
-        else:
-            try:
-                s3.upload_fileobj(imageResponse,bucket_name,object_name)
+        upload = s3.list_objects_v2(Bucket=bucket_name, Prefix=object_name)
+        
 
-            except Exception as e:
-                print (e)
+        if 'Contents' in upload:
+            
+            result = "Image already exists in the bucket."
+            print (result)
+        else:
+                s3.upload_fileobj(imageResponse,bucket_name,object_name)
+                result = 'success'
+        
+        return result
       
   
     def upload_data_to_RDS(self, product_dic:dict):
        
         ENDPOINT = 'database-1.cizl8lhq8hlk.eu-west-2.rds.amazonaws.com' 
         USER = 'postgres'
-        PASSWORD = 'Password'
+        PASSWORD = '!Password'
         PORT = 5432
         DATABASE = 'postgres'
         
@@ -186,8 +189,8 @@ class JlScraper(Scraper):
                         insert_values = (uuid,product_id, product_name, product_rating, available_size_and_price ,src_links,)
                         cur.execute(insert_script,insert_values) 
 
-       
         except Exception as error:
+        
             print (error)
         
         finally:

@@ -8,39 +8,58 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
 import time
-import urllib.request
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
+
+
 
 class Scraper:
 
-    def __init__(self, URL: str='https://www.johnlewis.com'):
+    def __init__(self, URL: str='https://www.johnlewis.com', headless:bool=True):
+        
+        if headless:
+            chrome_options = Options()
+            chrome_options.add_argument("--no-sandbox")
+            chrome_options.add_argument("--disable-dev-shm-usage")
+            chrome_options.add_argument('--headless')
+            chrome_options.add_argument("--window-size=1920,1080")
+            chrome_options.add_argument("--start-maximized")
+            chrome_options.add_argument("--disable-gpu")
+            chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
+            self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+        else:
+         
+            self.driver = webdriver.Chrome(ChromeDriverManager().install())
+       
         self.URL = URL
         
         # not to close window once the method is running
-        chr_options = Options()
-        chr_options.add_experimental_option("detach", True)
-        chr_options.add_argument("--disable-notifications")
-        
-        self.driver = webdriver.Chrome(options=chr_options)
+       
+        # chr_options = Options()
+        # chr_options.add_experimental_option("detach", True)
+        # chr_options.add_argument("--disable-notifications")
+        # self.driver = webdriver.Chrome(options=chr_options)
+
         self.delay = 2
         self._get_driver(self.URL)
     
-    @staticmethod
-    def create_folder(folder_name:str, folder_path:str='/Users/shubosun/Desktop/'):
-        try:
-            path = os.path.join(folder_path,folder_name)
-            os.mkdir(path)
-            print("Folder for product " , folder_name ,  " Created ") 
-        except FileExistsError:
-            print("Folder for product " , folder_name ,  " already exists")
-        except FileNotFoundError: 
-            print("Folder path does not exist, re-enter!")
+    # @staticmethod
+    # def create_folder(folder_name:str, folder_path:str='/Users/shubosun/Desktop/'):
+    #     try:
+    #         path = os.path.join(folder_path,folder_name)
+    #         os.mkdir(path)
+    #         print("Folder for product " , folder_name ,  " Created ") 
+    #     except FileExistsError:
+    #         print("Folder for product " , folder_name ,  " already exists")
+    #     except FileNotFoundError: 
+    #         print("Folder path does not exist, re-enter!")
         
-        return path
+    #     return path
     
-    @staticmethod
-    def download_image(image_url:str, image_name:str, folder_path:str='/Users/shubosun/Desktop/'):
-        name=f"{folder_path}/{image_name}.jpg"
-        urllib.request.urlretrieve(image_url,name)
+    # @staticmethod
+    # def download_image(image_url:str, image_name:str, folder_path:str='/Users/shubosun/Desktop/'):
+    #     name=f"{folder_path}/{image_name}.jpg"
+    #     urllib.request.urlretrieve(image_url,name)
 
 
     def _find_element(self, xpath:str): 

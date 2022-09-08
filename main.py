@@ -13,7 +13,7 @@ if __name__ =='__main__':
     # DBAPI = 'psycopg2'
     # ENDPOINT = 'database-1.cizl8lhq8hlk.eu-west-2.rds.amazonaws.com' 
     # USER = 'postgres'
-    # PASSWORD = 'Password'
+    # PASSWORD = '!Password'
     # PORT = 5432
     # DATABASE = 'postgres'
         
@@ -33,7 +33,7 @@ if __name__ =='__main__':
     # meta.create_all(engine)
     
     
-    john_lewis=JlScraper()
+    john_lewis=JlScraper(headless=True)
     john_lewis.search('dune slippers')
     product_list=john_lewis.find_all_search_result_links()
  
@@ -49,9 +49,9 @@ if __name__ =='__main__':
                 folder_name=product_dic['product id']
                 file_name=product_dic['product id']+'_'+str(product_dic['src links'].index(src_link))
                 # save image remotely
-                # john_lewis.save_image_remotely(src_link,'aicoredb',file_name)
+                john_lewis.save_image_remotely(src_link,'aicoredb',file_name)
                 #  save image locallly 
-                john_lewis.save_image_locally(src_link,folder_name, file_name)
+                # john_lewis.save_image_locally(src_link,folder_name, file_name)
         i=i+1
 
 

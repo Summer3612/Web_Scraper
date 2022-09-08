@@ -1,37 +1,29 @@
 
+from scraper.JlScraper import JlScraper
 from scraper.Scraper import Scraper
 import unittest
 from unittest.mock import patch, Mock
 from selenium.webdriver.common.by import By
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class TestScraper:
 
-    def setup(self):
-        
+    def test_search(self):
         self.test_Scraper = Scraper() 
-
-
-    @patch('scraper.Scraper.time.sleep')
-    @patch('scraper.Scraper.Scraper._find_element')
-    def test_search(
-        self,
-        mock_find_element:Mock,
-        mock_sleep:Mock
-        ):
-        self.test_Scraper.search('shoes')
-        mock_find_element.assert_called_with('//input[@name="search-term"]')
-        assert mock_sleep.call_count == 2
-
-        mock_find_element.send_keys= Mock()
-        # FIXME: how to test send_keys in search()
-        # assert mock_find_element.send_keys.call_count==2
+        self.delay = 2
+        self.test_Scraper.search('kdoeld')
+        element = WebDriverWait(self.test_Scraper.driver, self.delay).until(EC.presence_of_element_located((By.XPATH, '//h1[@tabindex="-1"]/span')) )     
+        assert element.text=="Sorry, we couldn't find any results for ‘kdoeld’"
 
     def test_find_all_search_result_links(self):
         
-        self.test_Scraper.search('bedding sets')
-        list = self.test_Scraper.find_all_search_result_links()
-        element = self.test_Scraper.driver.find_element(by = By.XPATH, value='//span[@id="screen-reader-updates"]')
+        delay=2
+        test=JlScraper('https://www.johnlewis.com/search?search-term=bedding%20sets&suggestion=true')
+        list = test.find_all_search_result_links()
+        element = WebDriverWait(test.driver, delay).until(EC.presence_of_element_located((By.XPATH, '//span[@id="screen-reader-updates"]')) )
         assert element.text.split(' ')[2] == str(len(list))
     
     def tearDown(self) -> None:
