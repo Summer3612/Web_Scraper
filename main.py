@@ -19,7 +19,7 @@ if __name__ =='__main__':
         
     # engine = create_engine(f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}", echo=True)
     # engine.connect() 
-    # meta=MetaData()
+    # meta=MetaData().
     # product_datatable=Table(
     #     'dataset_test1',meta,
     #     # Column('index', Integer, primary_key= True),
@@ -34,7 +34,7 @@ if __name__ =='__main__':
     
     
     john_lewis=JlScraper(headless=True)
-    john_lewis.search('dune slippers')
+    john_lewis.search('DUNE slippers')
     product_list=john_lewis.find_all_search_result_links()
  
     i=0
@@ -53,12 +53,3 @@ if __name__ =='__main__':
                 #  save image locallly 
                 # john_lewis.save_image_locally(src_link,folder_name, file_name)
         i=i+1
-
-
-    
-        
-       
-    
-    
-
-    

@@ -10,6 +10,8 @@ from selenium.webdriver.common.keys import Keys
 import time
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
+
 
 
 
@@ -18,15 +20,29 @@ class Scraper:
     def __init__(self, URL: str='https://www.johnlewis.com', headless:bool=True):
         
         if headless:
-            chrome_options = Options()
-            chrome_options.add_argument("--no-sandbox")
-            chrome_options.add_argument("--disable-dev-shm-usage")
-            chrome_options.add_argument('--headless')
-            chrome_options.add_argument("--window-size=1920,1080")
-            chrome_options.add_argument("--start-maximized")
-            chrome_options.add_argument("--disable-gpu")
-            chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
-            self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+            # chrome_options = Options()
+            # chrome_options.add_argument("--no-sandbox")
+            # chrome_options.add_argument("--disable-dev-shm-usage")
+            # chrome_options.add_argument('--headless')
+            # chrome_options.add_argument("--start-maximized")
+            # chrome_options.add_argument("--disable-gpu")
+            # chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
+            # chrome_path = '/home/ec2-user/usr/bin/chromedriver'
+            
+            # chrome_options.add_experimental_option("detach", True)
+            # chrome_options.add_argument("--disable-notifications")
+
+            # self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+         
+
+
+            options = Options()
+            options.headless = True
+           
+            self.driver = webdriver.Firefox(options=options, 
+                                            executable_path='/usr/local/bin/geckodriver')
+                                            #  executable_path='/tmp/geckodriver') 
+            
         else:
          
             self.driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -63,7 +79,7 @@ class Scraper:
 
 
     def _find_element(self, xpath:str): 
-        element = WebDriverWait(self.driver, self.delay).until(EC.presence_of_element_located((By.XPATH, xpath)))
+        element = WebDriverWait(self.driver, self.delay).until(EC.visibility_of_element_located((By.XPATH, xpath)))
         return element 
 
     
@@ -96,6 +112,7 @@ class Scraper:
 
     def _get_driver(self,url:str):
         self.driver.get(url)
+        self.driver.maximize_window()
         self._close_pop_up_windor()
         self._accept_cookies()
         self._close_live_chat_box()
@@ -120,7 +137,7 @@ class Scraper:
             # Scroll down to the middle of the page 
             self._scroll_down()
             # Wait to load page
-            time.sleep(0.3)
+            time.sleep(self.delay)
             
             # Calculate new scroll height and compare with last scroll height
             new_height = self.driver.execute_script("return document.body.scrollHeight-10")
@@ -157,7 +174,7 @@ class Scraper:
             
             # scroll down to the bottom for items to load
             self._scroll_down_till_bottom()
-            time.sleep(0.5)
+            time.sleep(self.delay)
             
             # extract item link from the current page
             links = WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="main-content"]//div[@data-test="product-image-container"]//a[@href]')))
@@ -169,7 +186,7 @@ class Scraper:
             # go to next page if there is any 
             try: 
                 self._go_to_next_page()
-                time.sleep(0.5)
+                time.sleep(self.delay)
          
             except TimeoutException:
                 print("Loading took too much time! Seems this is the last page!")
