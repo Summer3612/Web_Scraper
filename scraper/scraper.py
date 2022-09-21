@@ -3,12 +3,12 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.chrome.options import Options
+# from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
 import time
-from webdriver_manager.chrome import ChromeDriverManager
+# from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.options import Options
 
@@ -19,21 +19,35 @@ class Scraper:
 
     def __init__(self, URL: str='https://www.johnlewis.com', headless:bool=True):
         
+        # if headless:
+        #     chrome_options = Options()
+        #     chrome_options.add_argument("--no-sandbox")
+        #     chrome_options.add_argument("--disable-dev-shm-usage")
+        #     chrome_options.add_argument('--headless')
+        #     chrome_options.add_argument("--window-size=1920,1080")
+        #     chrome_options.add_argument("--start-maximized")
+        #     chrome_options.add_argument("--disable-gpu")
+        #     chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
+        #     self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+            
+            
+        #     # chrome_options.add_experimental_option("detach", True)
+        #     # chrome_options.add_argument("--disable-notifications")
+            
+        # else:
+        #     self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        
+        
         if headless:
 
             options = Options()
             options.headless = True
-           
+            options.add_argument("start-maximized")
             self.driver = webdriver.Firefox(options=options, 
-                                            executable_path='/usr/local/bin/geckodriver')
-                                            #  executable_path='/Users/shubosun/geckodriver/geckodriver') 
+                                            # executable_path='/usr/local/bin/geckodriver')
+                                             executable_path='/Users/shubosun/geckodriver/geckodriver') 
             
-        else:
-         
-            self.driver = webdriver.Chrome(ChromeDriverManager().install())
-       
-        self.URL = URL
-        
+        self.URL = URL 
 
         self.delay = 2
         self._get_driver(self.URL)
@@ -63,12 +77,18 @@ class Scraper:
 
     
     def _accept_cookies(self,xpath:str='//*[@data-test="allow-all"]'):
-    
-        try:
-            accept_cookies_button = self._find_element(xpath)
-            accept_cookies_button.click()
+
+        try: WebDriverWait(self.driver, self.delay).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+
         except TimeoutException:
             print("Loading took too much time! No cookies to accept")
+
+    
+        # try:
+        #     accept_cookies_button = self._find_element(xpath)
+        #     accept_cookies_button.click()
+        # except TimeoutException:
+        #     print("Loading took too much time! No cookies to accept")
 
 
     def _close_pop_up_windor(self, xpath:str='//*[@id="closeModal"]'):

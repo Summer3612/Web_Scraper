@@ -49,7 +49,7 @@ if __name__ =='__main__':
                 folder_name=product_dic['product id']
                 file_name=product_dic['product id']+'_'+str(product_dic['src links'].index(src_link))
                 # save image remotely
-                john_lewis.save_image_remotely(src_link,'aicoredb',file_name)
+                # john_lewis.save_image_remotely(src_link,'aicoredb',file_name)
                 #  save image locallly 
                 # john_lewis.save_image_locally(src_link,folder_name, file_name)
         i=i+1

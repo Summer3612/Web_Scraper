@@ -1,5 +1,6 @@
 from distutils.command.upload import upload
 import mimetypes
+from xml.dom.minidom import Identified
 import boto3
 import pandas as pd
 import psycopg2
@@ -153,10 +154,13 @@ class JlScraper(Scraper):
 
     @staticmethod
     def save_image_remotely(url:str, bucket_name:str, file_name:str):
+        id='AKIATX4WMFL3QPEVBCFS'
+        secret='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'
+
         s3=boto3.client(service_name='s3',
                         region_name='eu-west-2',
-                        aws_access_key_id='AKIATX4WMFL34T43TUWG',
-                        aws_secret_access_key='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'
+                        aws_access_key_id = id,
+                        aws_secret_access_key = secret
                         )
         
         imageResponse = requests.get(url, stream=True).raw
