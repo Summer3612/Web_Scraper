@@ -34,7 +34,7 @@ if __name__ =='__main__':
     
     
     john_lewis=JlScraper(headless=True)
-    john_lewis.search('DUNE slippers')
+    john_lewis.search('dune slippers')
     product_list=john_lewis.find_all_search_result_links()
  
     i=0

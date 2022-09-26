@@ -8,8 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
 import time
-# from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
+# from webdriver_manager.chrome import ChromeDriverManage
 from selenium.webdriver.firefox.options import Options
 
 
@@ -41,6 +40,13 @@ class Scraper:
         if headless:
 
             options = Options()
+            options.add_argument("--no-sandbox")
+            options.add_argument("--disable-dev-shm-usage")
+            options.add_argument('--headless')
+            options.add_argument("--window-size=1920,1080")
+            options.add_argument("--start-maximized")
+            options.add_argument("--disable-gpu")
+            options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
             options.headless = True
             options.add_argument("start-maximized")
             self.driver = webdriver.Firefox(options=options, 
@@ -48,8 +54,7 @@ class Scraper:
                                             #  executable_path='/Users/shubosun/geckodriver/geckodriver') 
             
         self.URL = URL 
-
-        self.delay = 30
+        self.delay = 10
         self._get_driver(self.URL)
     
     # @staticmethod
