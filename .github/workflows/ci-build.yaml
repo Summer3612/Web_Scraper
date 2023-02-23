@@ -18,6 +18,14 @@ jobs:
           python -m pip install --upgrade pip wheel
           pip install -r requirements.txt
       
+      - uses: actions/cache@v3
+        id: cache
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.*') }}
+          restore-keys: | 
+            ${{ runner.os }}-pip-
+      
       - name: Run unit tests with nose
         run: |
           pytest test
