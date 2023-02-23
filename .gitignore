@@ -3,3 +3,5 @@ notes.py
 archive.py
 *.egg-info
 *.__pycache__
+geckodriver.log
+aws.txt

@@ -3,6 +3,7 @@ setup.py
 scraper/JlScraper.py
 scraper/Scraper.py
 scraper/__init__.py
+scraper/scraper.py
 scraper.egg-info/PKG-INFO
 scraper.egg-info/SOURCES.txt
 scraper.egg-info/dependency_links.txt
@@ -10,3 +11,4 @@ scraper.egg-info/requires.txt
 scraper.egg-info/top_level.txt
 test/test_JlScraper.py
 test/test_Scraper.py
+test/test_scraper.py

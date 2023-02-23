@@ -1,11 +1,11 @@
 FROM --platform=linux/amd64 python:3.9
 
-
 # Update the system and install firefox
 RUN apt-get update 
 RUN apt -y upgrade 
 RUN apt-get install -y firefox-esr
 
+WORKDIR /app
 # get the latest release version of firefox 
 RUN latest_release=$(curl -sS https://api.github.com/repos/mozilla/geckodriver/releases/latest \
     | grep tag_name | sed -E 's/.*"([^"]+)".*/\1/') && \

@@ -12,8 +12,6 @@ setup(
             'pandas',
             'psycopg2-binary',
             'webdriver-manager',
-            'undetected_chromedriver',
-            'webdriver_manager.chrome'
                ],
     setup_requires=['pytest-runner'],
     tests_require=['pytest']
