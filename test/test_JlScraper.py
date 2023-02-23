@@ -3,15 +3,14 @@ from scraper.JlScraper import JlScraper
 import unittest
 from unittest.mock import patch, Mock
 import psycopg2
-import boto3
+from pathlib import Path
+import os
 
 
 class TestScraper:
 
     def setup(self):
-        
         self.test_JlScraper = JlScraper() 
-
 
     @patch('scraper.JlScraper.uuid.uuid4')
     @patch('scraper.JlScraper.JlScraper._get_driver')
@@ -60,7 +59,6 @@ class TestScraper:
                 ],
                 "src links": [
                     "https://johnlewis.scene7.com/is/image/JohnLewis/005124003?$rsp-pdp-port-640$",
-                    
                 ] }
         
         self.test_JlScraper.upload_data_to_RDS(dict)
@@ -72,88 +70,37 @@ class TestScraper:
         DATABASE = 'postgres'
 
         conn=None
-        try:
 
+        try:
             with  psycopg2.connect(host=ENDPOINT, 
                             port= PORT,
                             user=USER,
                             password=PASSWORD,
                             database=DATABASE
                             ) as conn: 
-                
                 with conn.cursor() as cur: 
-
                     # check if a record already exists. If yes, simply update the record;if not, upload the new record. 
                     cur.execute("SELECT product_id FROM dataset_test1 WHERE product_id=%s",('238963910',))
-
                     record = cur.fetchall() 
-
                     assert len(record)==1
                     for row in record: 
-                        assert row[2]=="Dune Snuggled Slippers, Leopard Print"
-                       
+                        assert row[2]=="Dune Snuggled Slippers, Leopard Print"       
+
         except Exception as error:
-        
             print (error)
-        
+            
         finally:
             if conn is not None: 
                 conn.close()
         
-    def test_save_image_remotely(self):
-        
-        src_link='https://johnlewis.scene7.com/is/image/JohnLewis/005124003?$rsp-pdp-port-640$'
+    def test_save_image_locally(self):
+         self.test_JlScraper.save_image_locally('https://johnlewis.scene7.com/is/image/JohnLewis/005124003?$rsp-pdp-port-640$','test','test_image')
+         folder_path=Path().resolve()
+         test_image_path = f"{str(folder_path)}/raw data/test/test_image.jpg"
+         assert os.path.exists(test_image_path)==True
+         os.remove(test_image_path)
+         os.rmdir(f"{str(folder_path)}/raw data/test")
     
-        assert self.test_JlScraper.save_image_remotely(src_link,'aicoredb','test')=='success'
-        assert self.test_JlScraper.save_image_remotely(src_link,'aicoredb','test')=='Image already exists in the bucket.'
-        
-        s3=boto3.resource('s3')
-        obj = s3.Object("aicoredb", "test.jpg")
-        obj.delete()
-
-
-    # @patch('scraper.JlScraper.JlScraper._save_dic_in_json')
-    # @patch('scraper.JlScraper.JlScraper._download_image_locally')
-    # @patch('scraper.JlScraper.JlScraper._create_folder')
-    # def test_save_image_locally(self,
-    #     mock_create_folder:Mock,
-    #     mock_download:Mock,
-    #     mock_save_dic_in_json:Mock
-    
-    #     ):
-
-    #     dict =   {"uuid": "0cb1725e-07ed-483b-a7de-2b7206cbc501",
-    #             "product id": "238963910",
-    #             "product name": "Dune Snuggled Slippers, Leopard Print",
-    #             "product rating": "Product review details, This product has received, on average, 5.00 star reviews,",
-    #             "available size and price": [
-    #                 [
-    #                 "6",
-    #                 "unavailable",
-    #                 "\u00a335.00"
-    #                 ],
-    #                 [
-    #                 "7",
-    #                 "unavailable",
-    #                 "\u00a335.00"
-    #                 ]
-    #             ],
-    #             "src links": [
-    #                 "https://johnlewis.scene7.com/is/image/JohnLewis/005124003?$rsp-pdp-port-640$",
-                    
-    #             ] }
-
-    #     self.test_JlScraper.save_product_info(dict)
-        
-    #     expected_1=[('raw data', '/Users/shubosun/Desktop/Data_Collection'),('238963910','/Users/shubosun/Desktop/Data_Collection/raw data')]
-    #     mock_create_folder.call_args_list== expected_1
-
-    #     expected_2=[("https://johnlewis.scene7.com/is/image/JohnLewis/005124003?$rsp-pdp-port-640$","238963910_0",'/Users/shubosun/Desktop/Data_Collection/raw data')]
-    #     mock_download.call_args_list ==expected_2
-    
-    #     expected_3=[(dict,'238963910','/Users/shubosun/Desktop/Data_Collection/raw data')]
-    #     mock_save_dic_in_json.call_args_list==expected_3
-
         
     def tearDown(self) -> None:
         return super().tearDown()

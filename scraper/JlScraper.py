@@ -1,10 +1,5 @@
-from distutils.command.upload import upload
-import mimetypes
-from xml.dom.minidom import Identified
-import boto3
 import pandas as pd
 import psycopg2
-import requests
 from scraper.scraper import Scraper
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -12,14 +7,15 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import time
-import uuid 
+import uuid
+from pathlib import Path
 
 
 
 class JlScraper(Scraper):
 
     def _get_product_id(self, xpath:str = '//jl-store-stock')->str:
-        
+        """This returns product id. """
         try: 
             name = self._find_element(xpath)
             product_id = name.get_attribute('skuid')
@@ -27,42 +23,33 @@ class JlScraper(Scraper):
         
         except Exception as e:
             print (e)
-        
-        
-        
     
     # FIXME: only certain categories of products are fine
     def _get_product_name(self,xpath:str = '//div[@class="xs-up"]//h1')->str:
+        """This returns the product name."""
         try: 
             productName=self._find_element(xpath)
             return productName.text
         except Exception as e:
             print (e)
 
-       
-
-
     def _get_product_rating(self, xpath:str ='//span[@data-test="rating"]')->str:    
+        """This returns the rating of a product if any."""
         # get rating - some products' rating is not availabe so try is used.
-        
         rating = ''
         try:
             productRating=WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, xpath)))
             rating=productRating[1].text
-        
         except TimeoutException: 
             rating='no rating available'
-        
         return rating
 
     # FIXME: only certain categories of products are fine
     # different size has different availability and price so the below is created in one method
     def _get_product_size_availability_price_list(self,xpath:str ='//button[@data-cy="size-selector-item"]')->list: 
-        
+        """This returns product available size and its price accordingly. Different sizes may have different prices."""
         try:
             size_list = WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, xpath)))
-        
-
             size_availability_price=[]
 
             for size in size_list:
@@ -87,8 +74,6 @@ class JlScraper(Scraper):
                     temp_list.append('available')
                 
                 temp_list.append(self._get_product_price_history())
-
-
                 size_availability_price.append(temp_list)
 
             return size_availability_price
@@ -97,6 +82,7 @@ class JlScraper(Scraper):
             print (e)
     
     def _get_product_src(self,xpath:str='//*[@class="ImageMagnifier_image-wrapper__GhoSr"]')->list: 
+        """This returns a list of srcs of a product."""
         # get src of the images of the product 
         try:
             src_elements = WebDriverWait(self.driver,self.delay).until(EC.presence_of_all_elements_located((By.XPATH, xpath)))
@@ -110,79 +96,37 @@ class JlScraper(Scraper):
         except Exception as e:
             print (e)
 
-       
-    
-
     def _get_product_price_history(self,xpath:str='//span[@class="ProductPrice_prices-list__jbkRS"]')->str:
-        
+        """This method returns the history of price for a product. """
         try: 
             price_elements =self.driver.find_elements(By.XPATH,xpath)
             return price_elements[1].text
         except Exception as e:
             print (e)
         
-
-    
     def create_prodcut_dic(self,url:str)->dict:
-
         """this method is to create a python dictionary to save the id, name, rating, size and price, src links of a product"""
-
         self._get_driver(url)
     
-
         product_info_dic = {'uuid':str(uuid.uuid4()), 'product id': '', 'product name': '', 'product rating': '', 'available size and price':[], 'src links':[]}
         
         product_info_dic['product id']=self._get_product_id()
         product_info_dic['product name']=self._get_product_name()
         product_info_dic['product rating'] = self._get_product_rating()
-        # product_info_dic['available size and price']=self._get_product_size_availability_price_list()
+        product_info_dic['available size and price']=self._get_product_size_availability_price_list()
         product_info_dic['src links'] = self._get_product_src()
 
         return product_info_dic
 
-    # def save_image_locally(self,url:str, folder_name:str, file_name:str, folder_path:str='/Users/shubosun/Desktop/Data_Collection'):
-
-    #     """this method is to save the production information and pictures in a local folder"""
-
-    #     raw_data_folder_path= self.create_folder('raw data', folder_path)
-    #     product_folder_path = self.create_folder(folder_name,raw_data_folder_path)
-        
-    #     self.download_image(url, file_name,product_folder_path)
-
-    #     return product_folder_path
+    def save_image_locally(self,url:str, folder_name:str, file_name:str):
+        """this method is to save the production information and pictures in a local folder"""
+        folder_path=Path().resolve()
+        raw_data_folder_path= self.create_folder('raw data', folder_path)
+        product_folder_path = self.create_folder(folder_name,raw_data_folder_path)
+        self.download_image(url, file_name,product_folder_path)  
     
-
-    @staticmethod
-    def save_image_remotely(url:str, bucket_name:str, file_name:str):
-        id='AKIATX4WMFL3QPEVBCFS'
-        secret='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'
-
-        s3=boto3.client(service_name='s3',
-                        region_name='eu-west-2',
-                        aws_access_key_id = id,
-                        aws_secret_access_key = secret
-                        )
-        
-        imageResponse = requests.get(url, stream=True).raw
-        content_type = imageResponse.headers['content-type']
-        extension = mimetypes.guess_extension(content_type)
-        object_name=file_name+extension
-    
-        upload = s3.list_objects_v2(Bucket=bucket_name, Prefix=object_name)
-        
-
-        if 'Contents' in upload:
-            
-            result = "Image already exists in the bucket."
-            print (result)
-        else:
-                s3.upload_fileobj(imageResponse,bucket_name,object_name)
-                result = 'success'
-        
-        return result
-      
-  
     def upload_data_to_RDS(self, product_dic:dict):
+        """This method upload scraped data to AWS RDS"""
        
         ENDPOINT = 'database-1.cizl8lhq8hlk.eu-west-2.rds.amazonaws.com' 
         USER = 'postgres'
@@ -201,7 +145,6 @@ class JlScraper(Scraper):
         
         conn=None
         try:
-
             with  psycopg2.connect(host=ENDPOINT, 
                             port= PORT,
                             user=USER,
@@ -226,7 +169,6 @@ class JlScraper(Scraper):
                         print("Info updated in database.")
 
         except Exception as error:
-        
             print (error)
         
         finally:
