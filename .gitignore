@@ -5,3 +5,7 @@ archive.py
 *.__pycache__
 geckodriver.log
 aws.txt
+.pytest_cache
+.eggs
+dist
+

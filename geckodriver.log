@@ -3650,3 +3650,39 @@ JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1677185432243	geckodriver	INFO	Listening on 127.0.0.1:59033
+1677185432750	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "59034" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilejNWB71"
+*** You are running in headless mode.
+1677185433436	Marionette	INFO	Marionette enabled
+1677185433480	Marionette	INFO	Listening on port 59041
+Read port: 59041
+WebDriver BiDi listening on ws://127.0.0.1:59034
+1677185433785	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilejNWB71/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59034/devtools/browser/74055911-ae64-40d7-be7b-f50d3ba97889
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.johnlewis.com."
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c24Ga7fuur/bgAfAQ/Gk/o6G09eRT4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
