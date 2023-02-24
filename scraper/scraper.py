@@ -10,7 +10,6 @@ import time
 from selenium.webdriver.firefox.options import Options
 import urllib.request
 import os
-import pathlib
 
 
 class Scraper:
