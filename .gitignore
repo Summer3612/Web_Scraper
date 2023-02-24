@@ -8,4 +8,6 @@ aws.txt
 .pytest_cache
 .eggs
 dist
+build
+secrets.json
 

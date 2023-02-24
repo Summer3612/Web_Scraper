@@ -11,7 +11,6 @@ import uuid
 from pathlib import Path
 
 
-
 class JlScraper(Scraper):
 
     def _get_product_id(self, xpath:str = '//jl-store-stock')->str:
