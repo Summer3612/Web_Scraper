@@ -9,6 +9,11 @@ from selenium.common.exceptions import TimeoutException
 import time
 import uuid
 from pathlib import Path
+import json
+import mimetypes
+import boto3
+import requests
+import json
 
 
 class JlScraper(Scraper):
@@ -127,11 +132,14 @@ class JlScraper(Scraper):
     def upload_data_to_RDS(self, product_dic:dict):
         """This method upload scraped data to AWS RDS"""
        
-        ENDPOINT = 'database-1.cizl8lhq8hlk.eu-west-2.rds.amazonaws.com' 
-        USER = 'postgres'
-        PASSWORD = '!Password'
-        PORT = 5432
-        DATABASE = 'postgres'
+        with open('credentials.json') as cred:
+            credentials = json.load(cred)
+    
+        ENDPOINT = credentials['ENDPOINT']
+        USER = credentials['USER']
+        PASSWORD = credentials['PASSWORD']
+        PORT = credentials['PORT']
+        DATABASE = credentials['DATABASE']
         
         df=pd.DataFrame.from_dict(product_dic, orient='index')
         
@@ -173,6 +181,33 @@ class JlScraper(Scraper):
         finally:
             if conn is not None: 
                 conn.close()
-
+    
+    def save_image_remotely(self, url:str, bucket_name:str, file_name:str):
+        """This method upload images to AWS s3"""
+        with open('aws.json') as aws:
+            credentials = json.load(aws)
+        
+        id= credentials['id']
+        secret=credentials['secret']
+    
+        s3=boto3.client(service_name='s3',
+                        region_name='eu-west-2',
+                        aws_access_key_id = id,
+                        aws_secret_access_key = secret
+                        )
+        
+        imageResponse = requests.get(url, stream=True).raw
+        content_type = imageResponse.headers['content-type']
+        extension = mimetypes.guess_extension(content_type)
+        object_name=file_name+extension
+        upload = s3.list_objects_v2(Bucket=bucket_name, Prefix=object_name)
+        
+        if 'Contents' in upload:
+            result = "Image already exists in the bucket."
+            print (result)
+        else:
+                s3.upload_fileobj(imageResponse,bucket_name,object_name)
+                result = 'success'
+        return result
 
 

@@ -27,8 +27,8 @@ class Scraper:
             options.headless = True
             options.add_argument("start-maximized")
             self.driver = webdriver.Firefox(options=options, 
-                                            executable_path='/usr/local/bin/geckodriver')
-                                            #  executable_path='/Users/shubosun/geckodriver/geckodriver') 
+                                            # executable_path='/usr/local/bin/geckodriver')
+                                             executable_path='/Users/shubosun/geckodriver/geckodriver') 
         self.URL = URL 
         self.delay = 3
         self._get_driver(self.URL)

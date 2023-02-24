@@ -9,5 +9,5 @@ aws.txt
 .eggs
 dist
 build
-secrets.json
+aws.json
 

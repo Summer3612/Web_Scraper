@@ -3686,3 +3686,386 @@ JavaScript warning: https://www.johnlewis.com/-QrrTj/1z/Qu/9u_C/-WdfwcjqAZ/1hE7c
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1677246419459	geckodriver	INFO	Listening on 127.0.0.1:55065
+1677246419932	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "55066" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilebCW20z"
+*** You are running in headless mode.
+1677246421344	Marionette	INFO	Marionette enabled
+1677246421417	Marionette	INFO	Listening on port 55073
+Read port: 55073
+WebDriver BiDi listening on ws://127.0.0.1:55066
+1677246421667	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilebCW20z/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55066/devtools/browser/162c7f99-b700-4a12-a667-55e3446ae3e1
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.johnlewis.com."
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677246845254	geckodriver	INFO	Listening on 127.0.0.1:55442
+1677246845758	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "55443" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilerGbWGT"
+*** You are running in headless mode.
+1677246846358	Marionette	INFO	Marionette enabled
+1677246846394	Marionette	INFO	Listening on port 55448
+Read port: 55448
+WebDriver BiDi listening on ws://127.0.0.1:55443
+1677246846674	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilerGbWGT/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55443/devtools/browser/0ee96127-2bc5-45bb-8582-dac113b456ff
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677246856321	geckodriver	INFO	Listening on 127.0.0.1:55572
+1677246856828	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "55573" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileinKJN7"
+*** You are running in headless mode.
+1677246857461	Marionette	INFO	Marionette enabled
+1677246857484	Marionette	INFO	Listening on port 55578
+Read port: 55578
+WebDriver BiDi listening on ws://127.0.0.1:55573
+1677246857791	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileinKJN7/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55573/devtools/browser/1e0f5fae-56cb-403f-a30b-11992269e7bb
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677246868251	geckodriver	INFO	Listening on 127.0.0.1:55710
+1677246868755	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "55712" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilepfl2R8"
+*** You are running in headless mode.
+1677246869237	Marionette	INFO	Marionette enabled
+1677246869259	Marionette	INFO	Listening on port 55718
+Read port: 55718
+WebDriver BiDi listening on ws://127.0.0.1:55712
+1677246869519	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilepfl2R8/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55712/devtools/browser/bc4a3555-8849-4ce2-b242-0c34639bdda9
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677246880307	geckodriver	INFO	Listening on 127.0.0.1:55848
+1677246880815	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "55849" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilebkL7Vf"
+*** You are running in headless mode.
+1677246881330	Marionette	INFO	Marionette enabled
+1677246881353	Marionette	INFO	Listening on port 55854
+Read port: 55854
+WebDriver BiDi listening on ws://127.0.0.1:55849
+1677246881632	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilebkL7Vf/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55849/devtools/browser/1ed33a89-2b57-4da1-ab9d-af69a0f55894
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677246891523	geckodriver	INFO	Listening on 127.0.0.1:55966
+1677246892034	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "55967" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilec5ftXk"
+*** You are running in headless mode.
+1677246892530	Marionette	INFO	Marionette enabled
+1677246892575	Marionette	INFO	Listening on port 55972
+Read port: 55972
+WebDriver BiDi listening on ws://127.0.0.1:55967
+1677246892846	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilec5ftXk/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55967/devtools/browser/0643a39d-3e32-41f0-8ddc-f647d273778e
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.johnlewis.com."
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677246908570	geckodriver	INFO	Listening on 127.0.0.1:56109
+1677246909065	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "56110" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofile1ZiBAU"
+*** You are running in headless mode.
+1677246909705	Marionette	INFO	Marionette enabled
+1677246909753	Marionette	INFO	Listening on port 56115
+Read port: 56115
+WebDriver BiDi listening on ws://127.0.0.1:56110
+1677246910167	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofile1ZiBAU/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56110/devtools/browser/1f08fc48-f0aa-4257-8fa2-64dee7f4829c
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677246920785	geckodriver	INFO	Listening on 127.0.0.1:56233
+1677246921285	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "56234" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileZXsd1E"
+*** You are running in headless mode.
+1677246921820	Marionette	INFO	Marionette enabled
+1677246921857	Marionette	INFO	Listening on port 56239
+Read port: 56239
+WebDriver BiDi listening on ws://127.0.0.1:56234
+1677246922171	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileZXsd1E/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56234/devtools/browser/769ad0f7-7211-48f3-8a6e-e27021cc19dd
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.johnlewis.com."
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677246997138	geckodriver	INFO	Listening on 127.0.0.1:56398
+1677246997645	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "56399" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileJnETsg"
+*** You are running in headless mode.
+1677246998251	Marionette	INFO	Marionette enabled
+1677246998289	Marionette	INFO	Listening on port 56406
+Read port: 56406
+WebDriver BiDi listening on ws://127.0.0.1:56399
+1677246998546	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileJnETsg/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56399/devtools/browser/f5f96249-cf60-4afc-965e-c13317427f2e
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677247009553	geckodriver	INFO	Listening on 127.0.0.1:56541
+1677247010049	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "56542" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileql3Odf"
+*** You are running in headless mode.
+1677247010648	Marionette	INFO	Marionette enabled
+1677247010670	Marionette	INFO	Listening on port 56549
+Read port: 56549
+WebDriver BiDi listening on ws://127.0.0.1:56542
+1677247010972	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileql3Odf/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56542/devtools/browser/3a6d6369-542f-4e2b-b42f-dd27a9d5a97e
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677247164417	geckodriver	INFO	Listening on 127.0.0.1:56908
+1677247164918	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "56909" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileyRAq2D"
+*** You are running in headless mode.
+1677247165435	Marionette	INFO	Marionette enabled
+1677247165472	Marionette	INFO	Listening on port 56916
+Read port: 56916
+WebDriver BiDi listening on ws://127.0.0.1:56909
+1677247165780	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileyRAq2D/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56909/devtools/browser/a1f2c15f-ded4-4bfb-b05f-35b4eab4c87c
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.johnlewis.com."
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677247356202	geckodriver	INFO	Listening on 127.0.0.1:57206
+1677247356711	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "57207" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileJqo8Dg"
+*** You are running in headless mode.
+1677247357264	Marionette	INFO	Marionette enabled
+1677247357310	Marionette	INFO	Listening on port 57216
+Read port: 57216
+WebDriver BiDi listening on ws://127.0.0.1:57207
+1677247357634	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileJqo8Dg/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57207/devtools/browser/bb95f598-3501-4730-8bae-83852c2b51a1
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.johnlewis.com."
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1677247390964	geckodriver	INFO	Listening on 127.0.0.1:57385
+1677247391462	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "57386" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofile7WHY8o"
+*** You are running in headless mode.
+1677247392031	Marionette	INFO	Marionette enabled
+1677247392068	Marionette	INFO	Listening on port 57396
+Read port: 57396
+WebDriver BiDi listening on ws://127.0.0.1:57386
+1677247392431	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofile7WHY8o/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57386/devtools/browser/85e1803c-edcf-44ea-ad17-e62bfd9dfbd7
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.johnlewis.com."
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677247486941	geckodriver	INFO	Listening on 127.0.0.1:57632
+1677247487444	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "57633" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileQFBV5l"
+*** You are running in headless mode.
+1677247488004	Marionette	INFO	Marionette enabled
+1677247488048	Marionette	INFO	Listening on port 57641
+Read port: 57641
+WebDriver BiDi listening on ws://127.0.0.1:57633
+1677247488413	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileQFBV5l/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57633/devtools/browser/06f23d4a-50fb-4f7a-bfe9-0f406b46614c
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.johnlewis.com."
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677247608288	geckodriver	INFO	Listening on 127.0.0.1:57901
+1677247608792	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "57902" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofile3TWkSH"
+*** You are running in headless mode.
+1677247609387	Marionette	INFO	Marionette enabled
+1677247609429	Marionette	INFO	Listening on port 57907
+Read port: 57907
+WebDriver BiDi listening on ws://127.0.0.1:57902
+1677247609692	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofile3TWkSH/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57902/devtools/browser/285c2f73-a54f-4af5-aadb-5e8a0a3490e4
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677247712154	geckodriver	INFO	Listening on 127.0.0.1:58074
+1677247712658	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "58075" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileTfCCE0"
+*** You are running in headless mode.
+1677247713218	Marionette	INFO	Marionette enabled
+1677247713285	Marionette	INFO	Listening on port 58081
+Read port: 58081
+WebDriver BiDi listening on ws://127.0.0.1:58075
+1677247713548	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileTfCCE0/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58075/devtools/browser/277e756c-e115-455c-9b9d-d00b02a8ee1d
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677247876846	geckodriver	INFO	Listening on 127.0.0.1:58258
+1677247877307	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "58259" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilehM9VLA"
+*** You are running in headless mode.
+1677247877899	Marionette	INFO	Marionette enabled
+1677247877920	Marionette	INFO	Listening on port 58267
+Read port: 58267
+WebDriver BiDi listening on ws://127.0.0.1:58259
+1677247878198	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilehM9VLA/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58259/devtools/browser/b4575e96-4e46-4cf7-ae0d-63746e6dd3cc
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677247950321	geckodriver	INFO	Listening on 127.0.0.1:58443
+1677247950840	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "58444" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilegAar4J"
+*** You are running in headless mode.
+1677247951438	Marionette	INFO	Marionette enabled
+1677247951471	Marionette	INFO	Listening on port 58450
+Read port: 58450
+WebDriver BiDi listening on ws://127.0.0.1:58444
+1677247951848	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilegAar4J/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58444/devtools/browser/08ff5de8-757d-4b58-800e-c09f75fbda39
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677248028991	geckodriver	INFO	Listening on 127.0.0.1:58625
+1677248029498	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "58626" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileYExtyU"
+*** You are running in headless mode.
+1677248030018	Marionette	INFO	Marionette enabled
+1677248030056	Marionette	INFO	Listening on port 58634
+Read port: 58634
+WebDriver BiDi listening on ws://127.0.0.1:58626
+1677248030421	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileYExtyU/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58626/devtools/browser/13f13632-c63c-4eff-8a3e-2d66af69b016
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677248110735	geckodriver	INFO	Listening on 127.0.0.1:58803
+1677248111240	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "58804" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileJArz0W"
+*** You are running in headless mode.
+1677248111845	Marionette	INFO	Marionette enabled
+1677248111875	Marionette	INFO	Listening on port 58809
+Read port: 58809
+WebDriver BiDi listening on ws://127.0.0.1:58804
+1677248112212	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileJArz0W/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58804/devtools/browser/285d76d6-759c-48d0-beb0-a8a3c5a79a65
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1677248133121	geckodriver	INFO	Listening on 127.0.0.1:58947
+1677248133621	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "58948" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileveZuFv"
+*** You are running in headless mode.
+1677248134140	Marionette	INFO	Marionette enabled
+1677248134178	Marionette	INFO	Listening on port 58956
+Read port: 58956
+WebDriver BiDi listening on ws://127.0.0.1:58948
+1677248134530	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileveZuFv/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58948/devtools/browser/777bb6f9-0692-4931-9524-c0ae604cfb1b
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677248176448	geckodriver	INFO	Listening on 127.0.0.1:59097
+1677248176953	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "59098" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileL18MOk"
+*** You are running in headless mode.
+1677248177487	Marionette	INFO	Marionette enabled
+1677248177558	Marionette	INFO	Listening on port 59105
+Read port: 59105
+WebDriver BiDi listening on ws://127.0.0.1:59098
+1677248177770	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileL18MOk/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59098/devtools/browser/7029f34e-f146-45eb-b708-9c688bf2b4a1
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677248380764	geckodriver	INFO	Listening on 127.0.0.1:59464
+1677248381258	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "59465" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileGTvlyn"
+*** You are running in headless mode.
+1677248381832	Marionette	INFO	Marionette enabled
+1677248381850	Marionette	INFO	Listening on port 59470
+Read port: 59470
+WebDriver BiDi listening on ws://127.0.0.1:59465
+1677248382117	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileGTvlyn/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59465/devtools/browser/d018bbc0-d2ca-40c6-b4c4-f1a46a319be8
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677248451362	geckodriver	INFO	Listening on 127.0.0.1:59651
+1677248451862	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "59652" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileE3zFmR"
+*** You are running in headless mode.
+1677248452442	Marionette	INFO	Marionette enabled
+1677248452484	Marionette	INFO	Listening on port 59658
+Read port: 59658
+WebDriver BiDi listening on ws://127.0.0.1:59652
+1677248452824	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofileE3zFmR/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59652/devtools/browser/b79aa2c5-2dd1-4036-934b-6e1a028a1f26
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1677248483432	geckodriver	INFO	Listening on 127.0.0.1:59811
+1677248483938	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "59812" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilecKM8D1"
+*** You are running in headless mode.
+1677248484576	Marionette	INFO	Marionette enabled
+1677248484612	Marionette	INFO	Listening on port 59819
+Read port: 59819
+WebDriver BiDi listening on ws://127.0.0.1:59812
+1677248484982	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilecKM8D1/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59812/devtools/browser/6489ca60-97bc-4f67-ac6f-c3e8a232e607
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1677248494837	geckodriver	INFO	Listening on 127.0.0.1:59905
+1677248495344	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "--headless" "--window-size=1920,1080" "--start-maximized" "--disable-gpu" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-headless" "start-maximized" "--remote-debugging-port" "59906" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilevSUqPI"
+*** You are running in headless mode.
+1677248496018	Marionette	INFO	Marionette enabled
+1677248496068	Marionette	INFO	Listening on port 59911
+Read port: 59911
+WebDriver BiDi listening on ws://127.0.0.1:59906
+1677248496364	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/_n/w1385t6s2_95t0qhksxgkpdm0000gn/T/rust_mozprofilevSUqPI/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59906/devtools/browser/58b33275-79cc-411b-b5ac-ac0695e927e0
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: unreachable code after return statement
+JavaScript warning: https://www.johnlewis.com/HYtPp/FI/Oc/-OHT/CE_THaY/DYQ5NDpzi97S/fA4ZTQ50AwI/cl8ffRNB/Tiw, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.

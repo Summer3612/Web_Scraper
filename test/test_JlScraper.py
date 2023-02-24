@@ -5,6 +5,9 @@ from unittest.mock import patch, Mock
 import psycopg2
 from pathlib import Path
 import os
+import boto3
+import json
+
 
 
 class TestScraper:
@@ -101,6 +104,16 @@ class TestScraper:
          os.remove(test_image_path)
          os.rmdir(f"{str(folder_path)}/raw data/test")
     
+    def test_save_image_remotely(self):
+        
+        src_link='https://johnlewis.scene7.com/is/image/JohnLewis/005124003?$rsp-pdp-port-640$'
+    
+        assert self.test_JlScraper.save_image_remotely(src_link,'aicoredb','test')=='success'
+        assert self.test_JlScraper.save_image_remotely(src_link,'aicoredb','test')=='Image already exists in the bucket.'
+    
+        s3 = boto3.resource('s3')
+        obj = s3.Object("aicoredb", "test.jpg")
+        obj.delete()
         
     def tearDown(self) -> None:
         return super().tearDown()
